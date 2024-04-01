@@ -29,6 +29,10 @@ class Product extends Resource
      */
     public static $title = 'name';
 
+    public function  subtitle(){
+        return "Brand: {$this->brand->name} ";
+    }
+
     /**
      * The columns that should be searched.
      *
