@@ -4,6 +4,7 @@ namespace App\Nova\Filters;
 
 use Laravel\Nova\Filters\Filter;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Models\Brand;
 
 class ProductBrand extends Filter
 {
@@ -24,7 +25,7 @@ class ProductBrand extends Filter
      */
     public function apply(NovaRequest $request, $query, $value)
     {
-        return $query;
+        return $query->where('brand_id', $value);
     }
 
     /**
@@ -35,6 +36,11 @@ class ProductBrand extends Filter
      */
     public function options(NovaRequest $request)
     {
-        return [];
+        $newOptions = [];
+        foreach(Brand::all() as $brand) {
+            $newOptions[$brand->name] = $brand->id;
+        }
+        return $newOptions;
     }
+
 }
