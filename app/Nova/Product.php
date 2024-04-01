@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Filters\ProductBrand;
 
 class Product extends Resource
 {
@@ -126,7 +127,9 @@ class Product extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new ProductBrand()
+        ];
     }
 
     /**
