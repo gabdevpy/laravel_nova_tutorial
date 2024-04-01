@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'pagination' => 'load-more', //valores posibles: simple / links / load-more
+    'pagination' => 'single', //valores posibles: simple / links / load-more
 
     /*
     |--------------------------------------------------------------------------
