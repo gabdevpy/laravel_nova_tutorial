@@ -13,6 +13,9 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsTo;
 use App\Nova\Filters\ProductBrand;
+use App\Nova\Metrics\NewProduct;
+use App\Nova\Metrics\AveragePrice;
+use App\Nova\Metrics\ProductsPerDay;
 
 class Product extends Resource
 {
@@ -116,7 +119,11 @@ class Product extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [
+            new NewProduct(),
+            new AveragePrice(),
+            new ProductsPerDay(),
+        ];
     }
 
     /**
